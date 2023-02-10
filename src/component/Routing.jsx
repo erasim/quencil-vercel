@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./home/Home";
 import SignIn from "./login/SignIn";
 import Policy from "./Policy/Policy";
+import PolicyDetailsMain from "./Policy/PolicyDetailsMain";
 
 const Routing = () => {
 	return (
@@ -17,6 +18,7 @@ const Routing = () => {
 			<Route path='/login/hr' element={< SignIn/>} />
 			<Route path='/login/Recruiter' element={< SignIn/>} />
 			<Route path='/login/employee' element={< SignIn/>} />
+			<Route path='/policy/policyDetails' element={< PolicyDetailsMain/>}/>
 		</Routes>
 	
 	);
