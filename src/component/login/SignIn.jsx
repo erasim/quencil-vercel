@@ -21,21 +21,24 @@ const SignIn = () => {
 	const role = array[array.length-1];
 	console.log(role);
 	dispatch(setUserRole( role ));
-	const LogIn = (e) => {
-		e.preventDefault();
-		signInWithEmailAndPassword(auth, email, password)
+	if(role==='hr' ||role==='Recruiter' || role==='employee' ){
+		const LogIn = (e) => {
+			e.preventDefault();
+			signInWithEmailAndPassword(auth, email, password)
+	
+				.then((userCredential) => {
+					// Signed in
+					// const user = userCredential.user;
+					navigate("/home");
+				})
+				.catch((error) => {
+					const errorCode = error.code;
+					const errorMessage = error.message;
+					console.log(errorCode, errorMessage);
+				});
+		};
+	}else{ alert("Plese seclect user type")}
 
-			.then((userCredential) => {
-				// Signed in
-				// const user = userCredential.user;
-				navigate("/home");
-			})
-			.catch((error) => {
-				const errorCode = error.code;
-				const errorMessage = error.message;
-				console.log(errorCode, errorMessage);
-			});
-	};
 	return (
 		<div className='login-cantainer'>
 			<div className='Left-login'>
